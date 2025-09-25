@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Monty Hall Problem</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="title">
+    <h1>The Monty Hall Problem</h1>
+  </div>
+
+  <div class="doors">
+    <div class="door-container">
+      <div class="door-number">1</div>
+      <img src="images/door.jpeg" alt="Door 1" onclick="reveal(0)">
+    </div>
+    <div class="door-container">
+      <div class="door-number">2</div>
+      <img src="images/door.jpeg" alt="Door 2" onclick="reveal(1)">
+    </div>
+    <div class="door-container">
+      <div class="door-number">3</div>
+      <img src="images/door.jpeg" alt="Door 3" onclick="reveal(2)">
+    </div>
+  </div>
+
+  <script>
+    let doors = document.querySelectorAll(".doors img");
+    let revealed = [false, false, false];
+    let click_count = 0;
+
+    function reveal(index) {
+      if (revealed[index]) {
+        return;
+      }
+
+      click_count++;
+
+      revealed[index] = true;
+      doors[index].classList.add("revealed_img");
+
+      if (click_count === 3) {
+        doors[index].src = "images/house.png";
+      } else {
+        doors[index].src = "images/bad.jpeg";
+      }
+    }
+  </script>
+</body>
+</html>
