@@ -47,6 +47,16 @@
         doors[index].src = "images/bad.jpeg";
       }
     }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'd') {
+        const audioJ = new Audio('sounds/l.mp3');
+        audioJ.play();
+      } else if (event.key === 'w') {
+        const audioK = new Audio('sounds/w.mp3');
+        audioK.play();
+      }
+    });
   </script>
 </body>
 </html>
